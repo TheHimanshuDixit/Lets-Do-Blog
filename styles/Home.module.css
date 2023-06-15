@@ -34,8 +34,13 @@
 }
 
 .mainnav li {
-  margin: 10px 20px;
-  font-size: 2rem;
+  margin: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.IMG {
+  border-radius: 30px;
 }
 
 .description a {

@@ -2,11 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import styles1 from '@/styles/Home1.module.css'
-import styles2 from '@/styles/Home2.module.css'
 import Script from 'next/script'
 import Link from 'next/link'
-import Dummy from '@/components/dummy'
 
 // we can not use global css as a module to use it write it in _app.js
 // import '../styles/style.css'
@@ -16,11 +13,22 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <>
-      <style jsx>{`
-        .head {
-          color: red;
-        }
-      `}</style>
+      <style jsx>
+        {`
+          .head {
+            font-family: 'Inter', sans-serif;
+            font-size: 2rem;
+            text-shadow: 0 0 10px #000;
+          }
+          h2 {
+            text-decoration: underline;
+          }
+          .myimg {
+            text-align: center;
+            padding-bottom: 2rem;
+          }
+        `}
+      </style>
 
       <Head>
         <title>Hunting Coder</title>
@@ -30,8 +38,7 @@ export default function Home() {
         {/* <script src='/sc.js'></script> */}
       </Head>
       <Script src='/sc.js' strategy='lazyOnload' />
-      <nav>
-        <Dummy/>
+      <nav> 
         <ul className={styles.mainnav}>
           <Link href={'/'}><li>Home</li></Link>
           <Link href={'/about'}><li>About</li></Link>
@@ -41,13 +48,14 @@ export default function Home() {
       </nav>
       <main className={`${styles.main} ${inter.className}`}>
         <h1>
-          <span className='head'>A Blog for Coders</span>
+          <span className='head'>Hunting Coder : A Blog for Coders</span>
         </h1>
         <div className={styles.description}>
           <div className={styles.blogs}>
             {/* <div className={`${styles1.blogs} ${styles2.blogs}`}>/ */}
             <h2>Popular Blogs</h2>
             <div className={styles.blogItem}>
+              <div className='myimg'><Image className= {styles.IMG} src='/coder.jpg' width={320} height={213}/></div>
               <h3>How to learn JavaScript in 2022?</h3>
               <p>JavaScript is the language used to design logic for the web</p>
             </div>

@@ -1,5 +1,5 @@
 import '@/styles/globals.css'
-import '../styles/style.css'
+// import '../styles/style.css'
 
 // all page start from here 
 
