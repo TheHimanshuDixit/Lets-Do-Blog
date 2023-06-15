@@ -7,6 +7,9 @@ import styles2 from '@/styles/Home2.module.css'
 import Script from 'next/script'
 import Link from 'next/link'
 
+// we can not use global css as a module to use it write it in _app.js
+// import '../styles/style.css'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
