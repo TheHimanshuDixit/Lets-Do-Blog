@@ -2,6 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import styles1 from '@/styles/Home1.module.css'
+import styles2 from '@/styles/Home2.module.css'
 import Script from 'next/script'
 import Link from 'next/link'
 
@@ -19,7 +21,7 @@ export default function Home() {
       </Head>
       <Script src='/sc.js' strategy='lazyOnload' />
       <nav>
-        <ul className={`${styles.mainnav}`}>
+        <ul className={styles.mainnav}>
           <Link href={'/'}><li>Home</li></Link>
           <Link href={'/about'}><li>About</li></Link>
           <Link href={'/blog'}><li>Blog</li></Link>
@@ -27,21 +29,22 @@ export default function Home() {
         </ul>
       </nav>
       <main className={`${styles.main} ${inter.className}`}>
-        <p>
+        <h1>
           A Blog for Coders
-        </p>
+        </h1>
         <div className={styles.description}>
-          <div className="blogs">
+          {/* <div className={styles.blogs}> */}
+          <div className={`${styles1.blogs} ${styles2.blogs}`}>
             <h2>Popular Blogs</h2>
-            <div className="blogItem">
+            <div className={styles.blogItem}>
               <h3>How to learn JavaScript in 2022?</h3>
               <p>JavaScript is the language used to design logic for the web</p>
             </div>
-            <div className="blogItem">
+            <div className={styles.blogItem}>
               <h3>How to learn JavaScript in 2022?</h3>
               <p>JavaScript is the language used to design logic for the web</p>
             </div>
-            <div className="blogItem">
+            <div className={styles.blogItem}>
               <h3>How to learn JavaScript in 2022?</h3>
               <p>JavaScript is the language used to design logic for the web</p>
             </div>
