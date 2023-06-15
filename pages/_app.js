@@ -1,3 +1,4 @@
+import Navbar from '@/components/Navbar';
 import '@/styles/globals.css'
 // import '../styles/style.css'
 
@@ -5,5 +6,8 @@ import '@/styles/globals.css'
 
 export default function App({ Component, pageProps }) {
   console.log('app');
-  return <Component {...pageProps} />
+  return <>
+    <Navbar />
+    <Component {...pageProps} />
+  </>
 }
