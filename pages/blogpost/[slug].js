@@ -2,6 +2,9 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import styles from '@/styles/blog.module.css'
 
+// Step 1: Find the right blog post based on the slug
+// Step 2: Render the blog post
+
 const slug = () => {
     const router = useRouter()
     console.log(router.query)

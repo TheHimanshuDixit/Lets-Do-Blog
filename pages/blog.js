@@ -3,6 +3,9 @@ import styles from '@/styles/Home.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 
+// Step 1: Collect all the files from blogdara folder
+// Step 2: Loop over the files and create a blog post for each
+
 const blog = () => {
   return (
     <div className={styles.main}>
