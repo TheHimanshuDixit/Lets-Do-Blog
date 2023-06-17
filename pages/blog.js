@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import styles from '@/styles/Home.module.css'
-// import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import * as fs from 'fs';
@@ -8,7 +7,7 @@ import * as fs from 'fs';
 // Step 1: Collect all the files from blogdara folder
 // Step 2: Loop over the files and create a blog post for each
 
-const blog = (props) => {
+const Blog = (props) => {
   const [blogs, setBlogs] = useState(props.allblogs)
 
   // useEffect(() => {
@@ -28,7 +27,7 @@ const blog = (props) => {
         {blogs.map((blogitem) => {
           return <div className={styles.blogItem} key={blogitem.slug}>
             {/* <div className='myimg'><Image className={styles.IMG} src='/coder.jpg' alt='' width={320} height={213} priority={true} /></div> */}
-            <div className='myimg'><img className={styles.IMG} src='/coder.jpg' alt='' width={320} height={213}/></div>
+            <div className='myimg'><img className={styles.IMG} src='/coder.jpg' alt="" width={320} height={213} /></div>
             <Link href={'/blogpost/' + blogitem.slug}>
               <h3>{blogitem.title}</h3>
             </Link>
@@ -75,4 +74,4 @@ export async function getStaticProps() {
 }
 
 
-export default blog
+export default Blog
