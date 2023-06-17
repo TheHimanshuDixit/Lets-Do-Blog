@@ -43,7 +43,7 @@ export default function Home() {
             {/* <div className={`${styles1.blogs} ${styles2.blogs}`}>/ */}
             <h2>Popular Blogs</h2>
             <div className={styles.blogItem}>
-              <div className='myimg'><Image className= {styles.IMG} src='/coder.jpg' alt='' width={320} height={213} priority={false}/></div>
+              <div className='myimg'><Image className= {styles.IMG} src='/coder.jpg' alt='' width={320} height={213} priority={true}/></div>
               <h3>How to learn JavaScript in 2022?</h3>
               <p>JavaScript is the language used to design logic for the web</p>
             </div>

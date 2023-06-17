@@ -1,6 +1,7 @@
 {
     "title": "How to learn Node js",
     "description": "Learn Javascript from scratch",
-    "author": "John Doe"
+    "author": "John Doe",
+    "slug": "how-to-learn-nodejs"
 
 }
