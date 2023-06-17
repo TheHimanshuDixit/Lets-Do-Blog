@@ -7,6 +7,9 @@ import * as fs from 'fs';
 // Step 2: Render the blog post
 
 const Slug = (props) => {
+    function createMarkup(change) {
+        return { __html: change };
+    }
     const [blog, setBlog] = useState(props.myblog)
     // const router = useRouter()
 
@@ -29,7 +32,7 @@ const Slug = (props) => {
                 Title of the page {blog && blog.title}
             </h1>
             <hr />
-            <div>{blog && blog.description}.</div>
+            {blog && <div dangerouslySetInnerHTML={createMarkup(blog.description)}></div>}
         </div>
     )
 }
@@ -55,7 +58,7 @@ export async function getStaticPaths() {
         ],
         fallback: true,
     };
-}   
+}
 
 export async function getStaticProps(context) {
     console.log(context)

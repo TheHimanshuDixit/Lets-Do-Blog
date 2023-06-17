@@ -1,6 +1,7 @@
 {
     "title": "How to learn Javasript",
-    "description": "Learn Javascript from scratch",
+    "description": "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n<\/head>\r\n<body>\r\n<h1>Online HTML Editor<\/h1>\r\n<div>This is real time online HTML Editor<\/div>\r\n<\/body>\r\n<\/html>",
     "author": "John Doe",
+    "metadata": "Learn javascript",
     "slug": "how-to-learn-javascript"
 }

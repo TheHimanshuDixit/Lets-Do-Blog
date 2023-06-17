@@ -2,6 +2,7 @@
     "title": "How to learn Node js",
     "description": "Learn Javascript from scratch",
     "author": "John Doe",
+    "metadata": "Learn Node js",
     "slug": "how-to-learn-nodejs"
 
 }
