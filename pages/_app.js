@@ -5,7 +5,7 @@ import '@/styles/globals.css'
 // all page start from here 
 
 export default function App({ Component, pageProps }) {
-  console.log('app');
+  // console.log('app');
   return <>
     <Navbar />
     <Component {...pageProps} />
