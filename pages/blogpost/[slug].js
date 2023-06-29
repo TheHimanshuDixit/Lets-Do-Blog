@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import styles from '@/styles/blog.module.css'
+import { BiSolidLike } from 'react-icons/bi';
+import { AiFillHeart } from 'react-icons/ai';
 import * as fs from 'fs';
 
 // Step 1: Find the right blog post based on the slug
@@ -27,13 +28,21 @@ const Slug = (props) => {
     //     })
     // }, [router.isReady])
     return (
-        <div className={styles.blog}>
-            <h1>
-                Title of the page {blog && blog.title}
-            </h1>
-            <hr />
-            {blog && <div dangerouslySetInnerHTML={createMarkup(blog.description)}></div>}
-        </div>
+        <>
+            <section class="text-gray-600 body-font">
+                <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+                    <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="/coder.jpg" />
+                    <div class="text-center lg:w-2/3 w-full">
+                        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Title of the page {blog && blog.title}</h1>
+                        <p class="mb-8 leading-relaxed">{blog && <div dangerouslySetInnerHTML={createMarkup(blog.description)}></div>}</p>
+                        <div class="flex justify-center">
+                            <button class="inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg"><BiSolidLike className='text-2xl text-blue-600' /></button>
+                            <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg"><AiFillHeart className="text-2xl text-pink-500" /></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </>
     )
 }
 

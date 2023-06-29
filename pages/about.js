@@ -1,27 +1,39 @@
 import React from 'react';
-import styles from '../styles/About.module.css'
+import { BiSolidBookContent } from 'react-icons/bi';
+import { TiTick } from 'react-icons/ti';
+import { HiUser } from 'react-icons/hi';
+import { PiSmileyStickerFill } from 'react-icons/pi';
 
 const About = () => {
-  return <div className={styles.container}>
-    <h1 className={styles.center}>About Hunting Coder</h1>
-    <h2>Introduction</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quidem? Minus, quas! Earum maxime dignissimos rem quisquam omnis voluptatem ab quis. Tempora iure iste asperiores dolores quia eligendi! Doloremque repellat repellendus deleniti est. Blanditiis officiis et explicabo dicta. Quod, blanditiis at similique enim deserunt labore nisi doloribus tempore nihil quam omnis magni ducimus natus sit vel, id reprehenderit nam non quo consectetur ipsa molestias nobis. </p>
-    <h2>Services Offered</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, quis. Saepe, blanditiis harum cum excepturi maiores atque mollitia quas itaque qui, exercitationem id quaerat magnam repellat quia fugiat hic iure sit vitae officiis eligendi.</p>
-    <p>We offer the following services</p>
-    <ul>
-      <li>Service 1</li>
-      <li>Service 1</li>
-      <li>Service 1</li>
-      <li>Service 1</li>
-      <li>Service 1</li>
-      <li>Service 1</li>
-      <li>Service 1</li>
-      <li>Service 1</li>
-    </ul>
-    <h2>Contact us</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos et animi harum assumenda necessitatibus explicabo nam, corporis deleniti, ab ad praesentium blanditiis iste saepe perferendis impedit architecto quia cupiditate? Accusantium est in inventore repellendus unde. Dolores labore deserunt corrupti fugiat ratione perspiciatis illo optio suscipit aliquid cumque nihil soluta earum, assumenda eligendi nulla sed molestias unde?</p>
-  </div>;
+  return <section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap">
+      <div class="flex flex-wrap -mx-4 mt-auto mb-auto lg:w-1/2 sm:w-2/3 content-start sm:pr-10">
+        <div class="w-full sm:p-4 px-4 mb-6">
+          <h1 class="title-font font-medium text-xl mb-2 text-gray-900">About</h1>
+          <div class="leading-relaxed">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro nesciunt voluptates nisi. Veniam sed eum optio asperiores totam ullam aliquam.</div>
+        </div>
+        <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2 text-center">
+          <h2 class="title-font font-medium text-3xl text-pink-600"><PiSmileyStickerFill className='m-auto'/></h2>
+          <p class="leading-relaxed">User Friendly</p>
+        </div>
+        <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2 text-center">
+          <h2 class="title-font font-medium text-3xl text-pink-600"><HiUser className='m-auto'/></h2>
+          <p class="leading-relaxed">Better UI/UX</p>
+        </div>
+        <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2 text-center">
+          <h2 class="title-font font-medium text-3xl text-pink-600"><TiTick className='m-auto'/></h2>
+          <p class="leading-relaxed">Free to access</p>
+        </div>
+        <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2 text-center">
+          <h2 class="title-font font-medium text-3xl text-pink-600"><BiSolidBookContent className='m-auto' /></h2>
+          <p class="leading-relaxed">Good Blogs</p>
+        </div>
+      </div>
+      <div class="lg:w-1/2 sm:w-1/3 w-full rounded-lg overflow-hidden mt-6 sm:mt-0">
+        <img class="object-cover object-center w-full h-full" src="/about.jpg" alt="stats" />
+      </div>
+    </div>
+  </section>
 };
 
 export default About;

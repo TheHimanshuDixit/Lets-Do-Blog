@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Link from 'next/link'
 
 // we can not use global css as a module to use it write it in _app.js
 // import '../styles/style.css'
@@ -10,22 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <>
-      <style jsx>
-        {`
-          .head {
-            font-family: 'Inter', sans-serif;
-            font-size: 2rem;
-            text-shadow: 0 0 10px #000;
-          }
-          h2 {
-            text-decoration: underline;
-          }
-          .myimg {
-            text-align: center;
-            padding-bottom: 2rem;
-          }
-        `}
-      </style>
+      <style jsx>{``}</style>
 
       <Head>
         <title>Hunting Coder</title>
@@ -33,31 +18,95 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
-        <h1>
-          <span className='head'>Hunting Coder : A Blog for Coders</span>
-        </h1>
-        <div className={styles.description}>
-          <div className={styles.blogs}>
-            {/* <div className={`${styles1.blogs} ${styles2.blogs}`}>/ */}
-            <h2>Popular Blogs</h2>
-            <div className={styles.blogItem}>
-              <div className='myimg'><img className={styles.IMG} src='/coder.jpg' alt="" width={320} height={213} /></div>
-              {/* <div className='myimg'><Image className={styles.IMG} src='/coder.jpg' alt='' width={320} height={213} priority={true} /></div> */}
-              <h3>How to learn JavaScript in 2022?</h3>
-              <p>JavaScript is the language used to design logic for the web</p>
+      <div>
+        <div className="mx-auto max-w-7xl sm:px-6 sm:m-6 ">
+          <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+            <svg
+              viewBox="0 0 1024 1024"
+              className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
+              aria-hidden="true"
+            >
+              <circle cx={512} cy={512} r={512} fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fillOpacity="0.7" />
+              <defs>
+                <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
+                  <stop stopColor="#7775D6" />
+                  <stop offset={1} stopColor="#E935C1" />
+                </radialGradient>
+              </defs>
+            </svg>
+            <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                Hunting Coder
+                <br />
+                A Blog for Coders
+              </h2>
+              <p className="mt-6 text-lg leading-8 text-gray-300">
+                The best way to learn coding is to read blogs and practice it. We are here to help you with that. We will provide you the best blogs to learn coding.
+              </p>
+              <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+                <Link
+                  href={"/blog"}
+                  className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                  Explore
+                </Link>
+                <Link href={"/blog"} className="text-sm font-semibold leading-6 text-white">
+                  See More <span aria-hidden="true">→</span>
+                </Link>
+              </div>
             </div>
-            <div className={styles.blogItem}>
-              <h3>How to learn JavaScript in 2022?</h3>
-              <p>JavaScript is the language used to design logic for the web</p>
-            </div>
-            <div className={styles.blogItem}>
-              <h3>How to learn JavaScript in 2022?</h3>
-              <p>JavaScript is the language used to design logic for the web</p>
+            <div className="relative mt-16 h-80 lg:mt-8">
+              <img
+                className="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
+                src="/coder.jpg"
+                alt="App screenshot"
+                width={1824}
+                height={1080}
+              />
             </div>
           </div>
         </div>
-      </main>
+      </div>
+      <section className="text-gray-600 body-font">
+        <div className="container px-5 py-24 mx-auto">
+          <div className="flex flex-col text-center w-full mb-20">
+            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Popular Blogs</h1>
+            <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, quas magni! Placeat suscipit sequi consequuntur ipsam neque omnis nisi illum!</p>
+          </div>
+          <div className="flex flex-wrap -m-4">
+            <div className="lg:w-1/3 sm:w-1/2 p-4">
+              <div className="flex relative">
+                <img alt="gallery" className="absolute inset-0 w-full h-full object-cover object-center rounded-xl" src="/coder.jpg" />
+                <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                  <h2 className="tracking-widest text-sm title-font font-medium text-pink-500 mb-1">BLOG</h2>
+                  <h1 className="title-font text-lg font-medium text-gray-900 mb-3">Neptune</h1>
+                  <p className="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+                </div>
+              </div>
+            </div>
+            <div className="lg:w-1/3 sm:w-1/2 p-4">
+              <div className="flex relative">
+                <img alt="gallery" className="absolute inset-0 w-full h-full object-cover object-center rounded-xl" src="/coder.jpg" />
+                <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                  <h2 className="tracking-widest text-sm title-font font-medium text-pink-500 mb-1">BLOG</h2>
+                  <h1 className="title-font text-lg font-medium text-gray-900 mb-3">Holden Caulfield</h1>
+                  <p className="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+                </div>
+              </div>
+            </div>
+            <div className="lg:w-1/3 sm:w-1/2 p-4">
+              <div className="flex relative">
+                <img alt="gallery" className="absolute inset-0 w-full h-full object-cover object-center rounded-xl" src="/coder.jpg" />
+                <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+                  <h2 className="tracking-widest text-sm title-font font-medium text-pink-500 mb-1">BLOG</h2>
+                  <h1 className="title-font text-lg font-medium text-gray-900 mb-3">Alper Kamu</h1>
+                  <p className="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </>
   )
 }
