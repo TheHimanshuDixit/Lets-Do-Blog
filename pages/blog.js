@@ -20,11 +20,9 @@ const Blog = (props) => {
   };
 
   useEffect(() => {
-    console.log('useEffect is running ');
     fetch('http://localhost:3000/api/getblogs').then((a) => {
       return a.json();
     }).then((b) => {
-      console.log(b);
       setAllblogs(b);
     })
   }, [])
@@ -42,35 +40,37 @@ const Blog = (props) => {
               <p className="sm:w-3/5 leading-relaxed text-base sm:pl-10 pl-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit modi qui at facere sapiente nulla incidunt ipsum, odio molestiae sequi?</p>
             </div>
           </div>
-          <InfiniteScroll
-            dataLength={blogs.length} //This is important field to render the next data
-            next={fetchData}
-            hasMore={allblogs.length !== blogs.length}
-            loader={<img src="/loading.gif" className='m-auto h-20 w-20'/>}
-            endMessage={
-              <p className='text-center mt-14 text-2xl text-pink-500'>
-                <b>Yay! You have seen it all</b>
-              </p>
-            }
-          >
-            <div className="flex flex-wrap sm:m-4 mx-4 -mb-10 -mt-4 justify-center">
-              {Object.keys(blogs).map((blogitem) => {
-                return <div key={blogs[blogitem].slug} className="p-4 md:w-1/3 sm:mb-0 mb-6">
-                  <div className="rounded-lg h-64 overflow-hidden">
-                    <img alt="content" className="object-cover object-center h-full w-full" src="/coder.jpg" />
-                  </div>
-                  <h2 className="text-xl font-medium title-font text-gray-900 mt-5">{blogs[blogitem].title}</h2>
-                  <p className="text-base leading-relaxed mt-2">{blogs[blogitem].metadata}.</p>
-                  <Link href={'/blogpost/' + blogs[blogitem].slug} className="text-pink-500 inline-flex items-center mt-3">Learn More
-                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </Link>
-                </div>
-              })
+          {allblogs.length === 0 ? <p className='text-center text-2xl font-bold text-pink-500'>Blogs Coming Soon !!</p>
+            : <InfiniteScroll
+              dataLength={blogs.length} //This is important field to render the next data
+              next={fetchData}
+              hasMore={allblogs.length !== blogs.length}
+              loader={<img src="/loading.gif" className='m-auto h-20 w-20' />}
+              endMessage={
+                <p className='text-center mt-14 text-2xl text-pink-500'>
+                  <b>Yay! You have seen it all</b>
+                </p>
               }
-            </div>
-          </InfiniteScroll>
+            >
+              <div className="flex flex-wrap sm:m-4 mx-4 -mb-10 -mt-4 justify-center">
+                {Object.keys(blogs).map((blogitem) => {
+                  return <div key={blogs[blogitem].slug} className="p-4 md:w-1/3 sm:mb-0 mb-6">
+                    <div className="rounded-lg h-64 overflow-hidden">
+                      <img alt="content" className="object-cover object-center h-full w-full" src="/coder.jpg" />
+                    </div>
+                    <h2 className="text-xl font-medium title-font text-gray-900 mt-5">{blogs[blogitem].title}</h2>
+                    <p className="text-base leading-relaxed mt-2">{blogs[blogitem].metadata}.</p>
+                    <Link href={'/blogpost/' + blogs[blogitem].slug} className="text-pink-500 inline-flex items-center mt-3">Learn More
+                      <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                      </svg>
+                    </Link>
+                  </div>
+
+                })
+                }
+              </div>
+            </InfiniteScroll>}
         </div>
       </section>
     </>

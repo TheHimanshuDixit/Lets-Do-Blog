@@ -12,7 +12,7 @@ const handler = async (req, res) => {
         let decryptedPass = bytes.toString(CryptoJS.enc.Utf8);
         if (user) {
             if (req.body.email == user.email && req.body.password == decryptedPass) {
-                var token = jwt.sign({ email: user.email, name: user.name }, process.env.JWT_SECRET, { expiresIn: '2d' });  // expires in 2 days
+                var token = jwt.sign({ email: user.email, name: user.name }, process.env.JWT_SECRET, { expiresIn: '1d' });  // expires in 2 days
                 res.status(200).json({ success: "success", token });
             }
             else {
