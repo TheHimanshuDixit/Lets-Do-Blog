@@ -1,11 +1,18 @@
 import { useRouter } from 'next/router';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaCode } from 'react-icons/fa';
 
 const Signup = () => {
 
   const [credential, setCredential] = useState({ name: "", email: "", password: "" })
   const Router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+        Router.push('/')
+    }
+}, [])
 
   const onChange = (e) => {
     e.preventDefault();

@@ -38,7 +38,7 @@ const Navbar = ({ user, handlelogout }) => {
                             </button>
                             {dropdown && <div id='account' className='absolute top-[5.2rem] right-10 md:top-12 md:right-28 z-20 bg-pink-200 rounded-2xl' onMouseOver={onover} onMouseLeave={onleave}>
                                 <Link href={'#'} className="w-28 hover:text-gray-900 hover:bg-pink-400 p-1 rounded-2xl block m-auto text-center">Profile</Link>
-                                <Link href={'/addblog'} className="w-28 hover:text-gray-900 hover:bg-pink-400 p-1 rounded-2xl block m-auto text-center">Add Blog</Link>
+                                <Link href={'/addblogs'} className="w-28 hover:text-gray-900 hover:bg-pink-400 p-1 rounded-2xl block m-auto text-center">Add Blog</Link>
                                 <Link href={'#'} className="w-28 hover:text-gray-900 hover:bg-pink-400 p-1 rounded-2xl block m-auto text-center">Setting</Link>
                             </div>}
                             <button onClick={handlelogout} className="ml-4 inline-flex items-center bg-pink-400 border-0 py-1 px-3 focus:outline-none hover:bg-pink-500 rounded text-base mt-4 md:mt-0 text-white">Logout
