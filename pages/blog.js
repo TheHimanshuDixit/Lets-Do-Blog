@@ -46,7 +46,7 @@ const Blog = (props) => {
             dataLength={blogs.length} //This is important field to render the next data
             next={fetchData}
             hasMore={allblogs.length !== blogs.length}
-            loader={<h4 className='font-semibold text-center text-2xl text-pink-500'>Loading...</h4>}
+            loader={<img src="/loading.gif" className='m-auto h-20 w-20'/>}
             endMessage={
               <p className='text-center mt-14 text-2xl text-pink-500'>
                 <b>Yay! You have seen it all</b>
