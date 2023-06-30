@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 
 const Contact = () => {
-    const [name, setname] = useState('')
-    const [email, setemail] = useState('')
-    const [phone, setphone] = useState('')
-    const [desc, setdesc] = useState('')
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [message, setMessage] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(phone, name, email, desc)
-        const data = { phone, name, email, desc };
+        const data = { phone, name, email, message };
 
         fetch('http://localhost:3000/api/postcontact', {
             method: 'POST', // or 'PUT'
@@ -18,14 +17,14 @@ const Contact = () => {
             },
             body: JSON.stringify(data),
         })
-            .then(response => response.text())
+            .then(response => response.json())
             .then(data => {
-                console.log('Success:', data);
+                console.log(data);
                 alert("Thanks for contacting us");
-                setphone('')
-                setname('')
-                setdesc('')
-                setemail('')
+                setPhone('')
+                setName('')
+                setMessage('')
+                setEmail('')
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -34,16 +33,16 @@ const Contact = () => {
     }
     const handleChange = (e) => {
         if (e.target.name == 'phone') {
-            setphone(e.target.value)
+            setPhone(e.target.value)
         }
         else if (e.target.name == 'email') {
-            setemail(e.target.value)
+            setEmail(e.target.value)
         }
-        else if (e.target.name == 'desc') {
-            setdesc(e.target.value)
+        else if (e.target.name == 'message') {
+            setMessage(e.target.value)
         }
         else if (e.target.name == 'name') {
-            setname(e.target.value)
+            setName(e.target.value)
         }
     }
 
@@ -76,8 +75,8 @@ const Contact = () => {
                         </div>
                         <div className="p-2 w-full">
                             <div className="relative">
-                                <label htmlFor="desc" className="leading-7 text-sm text-gray-600">Elaborate your concern</label>
-                                <textarea value={desc} onChange={handleChange} name='desc' id="desc" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out" />
+                                <label htmlFor="message" className="leading-7 text-sm text-gray-600">Elaborate your concern</label>
+                                <textarea value={message} onChange={handleChange} name='message' id="message" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out" />
                             </div>
                         </div>
                         <div className="p-2 w-full">

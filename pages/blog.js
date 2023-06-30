@@ -1,32 +1,33 @@
 import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { useState } from 'react'
-import * as fs from 'fs';
+// import * as fs from 'fs';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 // Step 1: Collect all the files from blogdara folder
 // Step 2: Loop over the files and create a blog post for each
 
 const Blog = (props) => {
-  const [blogs, setBlogs] = useState(props.allblogs)
+  const [blogs, setBlogs] = useState('')
+  const [allblogs, setAllblogs] = useState('')
   const [count, setCount] = useState(0)
 
   const fetchData = async () => {
-    let d = await fetch(`http://localhost:3000/api/blogs/?count=${count + 1}`)
+    let d = await fetch(`http://localhost:3000/api/getblogs/?count=${count + 1}`)
     setCount(count + 1)
     let data = await d.json()
     setBlogs(data)
   };
 
-  // useEffect(() => {
-  //   console.log('useEffect is running ');
-  //   fetch('http://localhost:3000/api/blogs').then((a) => {
-  //     return a.json();
-  //   }).then((b) => {
-  //     console.log(b);
-  //     setBlogs(b);
-  //   })
-  // }, [])
+  useEffect(() => {
+    console.log('useEffect is running ');
+    fetch('http://localhost:3000/api/getblogs').then((a) => {
+      return a.json();
+    }).then((b) => {
+      console.log(b);
+      setAllblogs(b);
+    })
+  }, [])
 
   return (
     <>
@@ -44,7 +45,7 @@ const Blog = (props) => {
           <InfiniteScroll
             dataLength={blogs.length} //This is important field to render the next data
             next={fetchData}
-            hasMore={props.allCount !== blogs.length}
+            hasMore={allblogs.length !== blogs.length}
             loader={<h4 className='font-semibold text-center text-2xl text-pink-500'>Loading...</h4>}
             endMessage={
               <p className='text-center mt-14 text-2xl text-pink-500'>
@@ -53,14 +54,14 @@ const Blog = (props) => {
             }
           >
             <div className="flex flex-wrap sm:m-4 mx-4 -mb-10 -mt-4 justify-center">
-              {blogs.map((blogitem) => {
-                return <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
+              {Object.keys(blogs).map((blogitem) => {
+                return <div key={blogs[blogitem].slug} className="p-4 md:w-1/3 sm:mb-0 mb-6">
                   <div className="rounded-lg h-64 overflow-hidden">
                     <img alt="content" className="object-cover object-center h-full w-full" src="/coder.jpg" />
                   </div>
-                  <h2 className="text-xl font-medium title-font text-gray-900 mt-5">{blogitem.title}</h2>
-                  <p className="text-base leading-relaxed mt-2">{blogitem.metadata}.</p>
-                  <Link href={'/blogpost/' + blogitem.slug} className="text-pink-500 inline-flex items-center mt-3">Learn More
+                  <h2 className="text-xl font-medium title-font text-gray-900 mt-5">{blogs[blogitem].title}</h2>
+                  <p className="text-base leading-relaxed mt-2">{blogs[blogitem].metadata}.</p>
+                  <Link href={'/blogpost/' + blogs[blogitem].slug} className="text-pink-500 inline-flex items-center mt-3">Learn More
                     <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                       <path d="M5 12h14M12 5l7 7-7 7"></path>
                     </svg>
@@ -90,25 +91,25 @@ const Blog = (props) => {
 
 // static side rendering 
 
-export async function getStaticProps() {
-  let data = await fs.promises.readdir("blogdata")
-  let allCount = data.length;
-  let myfile;
-  let allblogs = [];
-  for (let i = 0; i < 1; i++) {
-    const item = data[i];
-    myfile = await fs.promises.readFile(("blogdata/" + item), "utf-8")
-    allblogs.push(JSON.parse(myfile));
-  }
+// export async function getStaticProps() {
+//   let data = await fs.promises.readdir("blogdata")
+//   let allCount = data.length;
+//   let myfile;
+//   let allblogs = [];
+//   for (let i = 0; i < 1; i++) {
+//     const item = data[i];
+//     myfile = await fs.promises.readFile(("blogdata/" + item), "utf-8")
+//     allblogs.push(JSON.parse(myfile));
+//   }
 
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
-  return {
-    props: {
-      allblogs, allCount
-    }
-  }
-}
+// By returning { props: { posts } }, the Blog component
+// will receive `posts` as a prop at build time
+//   return {
+//     props: {
+//       allblogs, allCount
+//     }
+//   }
+// }
 
 
 export default Blog
