@@ -19,16 +19,12 @@ import dbConnect from '../../middleware/dbConnect';
 
 const handler = async (req, res) => {
     if (req.method == 'POST') {
-        // for (let i = 0; i < req.body.length; i++) {
-        //     let p = new Contact({
-        //         name: req.body[i].name,
-        //         phone: req.body[i].phone,
-        //         email: req.body[i].email,
-        //         message: req.body[i].message
-        //     })
-        //     await p.save();
-        // }
-        let p = new Contact(req.body)
+        let p = new Contact({
+            name: req.body.name,
+            phone: req.body.phone,
+            email: req.body.email,
+            message: req.body.message
+        })
         await p.save();
         res.status(200).json({ success: "success" });
     }

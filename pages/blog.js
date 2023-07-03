@@ -10,7 +10,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 const Blog = (props) => {
   const [blogs, setBlogs] = useState('')
   const [allblogs, setAllblogs] = useState('')
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(1)
 
   const fetchData = async () => {
     let d = await fetch(`http://localhost:3000/api/getblogs/?count=${count + 1}`)
@@ -45,7 +45,7 @@ const Blog = (props) => {
               dataLength={blogs.length} //This is important field to render the next data
               next={fetchData}
               hasMore={allblogs.length !== blogs.length}
-              loader={<img src="/loading.gif" className='m-auto h-20 w-20' />}
+              loader={<img src="/loading.gif" className='mt-20 md:mt-0 m-auto h-20 w-20' />}
               endMessage={
                 <p className='text-center mt-14 text-2xl text-pink-500'>
                   <b>Yay! You have seen it all</b>

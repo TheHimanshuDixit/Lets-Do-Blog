@@ -19,21 +19,34 @@
 
 import Blog from '../../models/blog';
 import dbConnect from '../../middleware/dbConnect';
+var jwt = require('jsonwebtoken');
+require('dotenv').config();
+
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const handler = async (req, res) => {
     if (req.method == 'POST') {
-        for (let i = 0; i < req.body.length; i++) {
-            let p = new Blog({
-                title: req.body[i].title,
-                slug: req.body[i].slug,
-                desc: req.body[i].desc,
-                image: req.body[i].image,
-                author: req.body[i].author,
-                metadata: req.body[i].metadata
-            })
-            await p.save();
+        const token = req.headers['auth-token'];
+        if (!token) {
+            res.status(401).send({ "Error": "Please authenticate using a valid token" });
         }
-        res.status(200).json({ success: "success" });
+        try {
+            const data = jwt.verify(token, JWT_SECRET);
+            const user = await data.user.id;
+            let p = await new Blog({
+                user: user,
+                title: req.body.title,
+                slug: req.body.slug,
+                desc: req.body.desc,
+                image: req.body.image,
+                author: req.body.author,
+                metadata: req.body.metadata
+            });
+            const blog = await p.save();
+            res.status(200).json({ blog: blog, success: "success" });
+        } catch (error) {
+            res.status(400).json({ error: error });
+        }
     }
     else {
         res.status(400).json({ error: "This method is not allowed" });
