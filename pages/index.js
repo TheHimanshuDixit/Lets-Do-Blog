@@ -75,31 +75,31 @@ export default function Home() {
           <div className="flex flex-wrap -m-4">
             <div className="lg:w-1/3 sm:w-1/2 p-4">
               <div className="flex relative">
-                <img alt="gallery" className="absolute inset-0 w-full h-full object-cover object-center rounded-xl" src="/coder.jpg" />
+                <img alt="gallery" className="absolute inset-0 w-full h-full object-cover object-center rounded-xl" src="https://img.freepik.com/free-vector/web-development-concept-with-programmer-ar_107791-17049.jpg?size=626&ext=jpg&uid=R70082888&ga=GA1.2.903730306.1655306128&semt=sph" />
                 <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
                   <h2 className="tracking-widest text-sm title-font font-medium text-pink-500 mb-1">BLOG</h2>
-                  <h1 className="title-font text-lg font-medium text-gray-900 mb-3">Neptune</h1>
-                  <p className="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+                  <h1 className="title-font text-lg font-medium text-gray-900 mb-3">How To Learn Javascript</h1>
+                  <p className="leading-relaxed">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti est rem sunt nam! Harum quaerat.</p>
                 </div>
               </div>
             </div>
             <div className="lg:w-1/3 sm:w-1/2 p-4">
               <div className="flex relative">
-                <img alt="gallery" className="absolute inset-0 w-full h-full object-cover object-center rounded-xl" src="/coder.jpg" />
+                <img alt="gallery" className="absolute inset-0 w-full h-full object-cover object-center rounded-xl" src="https://img.freepik.com/free-photo/html-css-collage-concept_23-2150061955.jpg?w=740&t=st=1688468706~exp=1688469306~hmac=d10d59e4bb6535e4766278fe09fec36ae04bfb1f333b20719d1855fd8a9addce" />
                 <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
                   <h2 className="tracking-widest text-sm title-font font-medium text-pink-500 mb-1">BLOG</h2>
-                  <h1 className="title-font text-lg font-medium text-gray-900 mb-3">Holden Caulfield</h1>
-                  <p className="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+                  <h1 className="title-font text-lg font-medium text-gray-900 mb-3">How To Learn NodeJS</h1>
+                  <p className="leading-relaxed">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti est rem sunt nam! Harum quaerat.</p>
                 </div>
               </div>
             </div>
             <div className="lg:w-1/3 sm:w-1/2 p-4">
               <div className="flex relative">
-                <img alt="gallery" className="absolute inset-0 w-full h-full object-cover object-center rounded-xl" src="/coder.jpg" />
+                <img alt="gallery" className="absolute inset-0 w-full h-full object-cover object-center rounded-xl" src="https://img.freepik.com/free-photo/html-css-collage-concept-with-person_23-2150062008.jpg?size=626&ext=jpg&uid=R70082888&ga=GA1.1.903730306.1655306128&semt=sph" />
                 <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
                   <h2 className="tracking-widest text-sm title-font font-medium text-pink-500 mb-1">BLOG</h2>
-                  <h1 className="title-font text-lg font-medium text-gray-900 mb-3">Alper Kamu</h1>
-                  <p className="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+                  <h1 className="title-font text-lg font-medium text-gray-900 mb-3">How To Learn NextJS</h1>
+                  <p className="leading-relaxed">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti est rem sunt nam! Harum quaerat.</p>
                 </div>
               </div>
             </div>
