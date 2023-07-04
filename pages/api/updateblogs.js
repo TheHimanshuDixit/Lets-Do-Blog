@@ -15,7 +15,7 @@ const handler = async (req, res) => {
         const data = jwt.verify(token, JWT_SECRET);
         const user = data.user.id;
         if (req.method == 'PUT') {
-            const { _id, title, slug, desc, image, author, metadata } = req.body;
+            const { id, title, slug, desc, image, author, metadata } = req.body;
             const newBlog = {};
             if (title) newBlog.title = title;
             if (slug) newBlog.slug = slug;
@@ -24,7 +24,7 @@ const handler = async (req, res) => {
             if (author) newBlog.author = author;
             if (metadata) newBlog.metadata = metadata;
 
-            let blog = await Blog.findById(_id);
+            let blog = await Blog.findById(id);
             if (!blog) return res.status(404).json({ msg: 'Blog not found' });
 
             // Make sure user owns blog
@@ -33,7 +33,7 @@ const handler = async (req, res) => {
             }
 
             blog = await Blog.findByIdAndUpdate(
-                _id,
+                id,
                 { $set: newBlog },
                 { new: true }
             );

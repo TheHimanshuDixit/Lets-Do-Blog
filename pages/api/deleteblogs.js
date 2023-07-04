@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import Blog from '../../../models/blog';
-import dbConnect from '../../../middleware/dbConnect';
+import Blog from '../../models/blog';
+import dbConnect from '../../middleware/dbConnect';
 var jwt = require('jsonwebtoken');
 require('dotenv').config();
 
@@ -15,8 +15,7 @@ const handler = async (req, res) => {
         const data = jwt.verify(token, JWT_SECRET);
         const user = data.user.id;
         if (req.method == 'POST') {
-            console.log(req.params)
-            let blog = await Blog.findById(req.body._id);
+            let blog = await Blog.findById(req.body.id);
             if (!blog) return res.status(404).json({ msg: 'Blog not found' });
 
             // Make sure user owns blog
@@ -24,8 +23,8 @@ const handler = async (req, res) => {
                 return res.status(401).json({ msg: 'Not authorized' });
             }
 
-            blog = await Blog.findByIdAndDelete(req.body._id);
-            res.json({ msg: 'Blog removed' });
+            blog = await Blog.findByIdAndDelete(req.body.id);
+            res.json({ msg: 'Blog removed', blog: blog });
         }
     } catch (error) {
         res.status(400).json({ error: error });
