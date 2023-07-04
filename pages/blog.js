@@ -22,7 +22,7 @@ const Blog = (props) => {
       return a.json();
     }).then((b) => {
       setAllblogs(b);
-      console.log(b);
+      // console.log(b);
       setBlogs(blogs.concat(b[count]));
       setCount(count + 1)
     })

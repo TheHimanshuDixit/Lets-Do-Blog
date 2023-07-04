@@ -19,7 +19,7 @@ const Contact = () => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 alert("Thanks for contacting us");
                 setPhone('')
                 setName('')
