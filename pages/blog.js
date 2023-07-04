@@ -8,15 +8,13 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 // Step 2: Loop over the files and create a blog post for each
 
 const Blog = (props) => {
-  const [blogs, setBlogs] = useState('')
+  const [blogs, setBlogs] = useState([])
   const [allblogs, setAllblogs] = useState('')
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(0)
 
   const fetchData = async () => {
-    let d = await fetch(`http://localhost:3000/api/getblogs/?count=${count + 1}`)
     setCount(count + 1)
-    let data = await d.json()
-    setBlogs(data)
+    setBlogs(blogs.concat(allblogs[count]));
   };
 
   useEffect(() => {
@@ -24,6 +22,9 @@ const Blog = (props) => {
       return a.json();
     }).then((b) => {
       setAllblogs(b);
+      console.log(b);
+      setBlogs(blogs.concat(b[count]));
+      setCount(count + 1)
     })
   }, [])
 
