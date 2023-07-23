@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 // import * as fs from 'fs';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Head from 'next/head';
 
 // Step 1: Collect all the files from blogdara folder
 // Step 2: Loop over the files and create a blog post for each
@@ -18,7 +19,7 @@ const Blog = (props) => {
   };
 
   useEffect(() => {
-    fetch(`${PORT}/api/getblogs`).then((a) => {
+    fetch(`/api/getblogs`).then((a) => {
       return a.json();
     }).then((b) => {
       setAllblogs(b);
@@ -30,6 +31,9 @@ const Blog = (props) => {
 
   return (
     <>
+      <Head>
+        <title>Blogs</title>
+      </Head>
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-col">

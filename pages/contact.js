@@ -1,6 +1,5 @@
+import Head from 'next/head';
 import React, { useState } from 'react';
-
-const PORT = "https://lets-do-blog-ghvznq5ki-thehimanshudixit.vercel.app";
 
 const Contact = () => {
     const [name, setName] = useState('')
@@ -12,7 +11,7 @@ const Contact = () => {
         e.preventDefault()
         const data = { phone, name, email, message };
 
-        fetch(`${PORT}/api/postcontact`, {
+        fetch(`/api/postcontact`, {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
@@ -49,6 +48,9 @@ const Contact = () => {
     }
 
     return <>
+        <Head>
+            <title>Contact</title>
+        </Head>
         <section className="text-gray-600 body-font relative">
             <div className="container px-5 py-12 mx-auto">
                 <div className="flex flex-col text-center w-full mb-12">

@@ -1,10 +1,9 @@
+import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { BsFillTrashFill } from 'react-icons/bs';
 import { FaEdit } from 'react-icons/fa';
-
-const PORT = "https://lets-do-blog-ghvznq5ki-thehimanshudixit.vercel.app";
 
 const Addblogs = () => {
   const Router = useRouter();
@@ -17,7 +16,7 @@ const Addblogs = () => {
 
   const getblogs = async () => {
     if (localStorage.getItem('token')) {
-      fetch(`${PORT}/api/specificuserblog`, {
+      fetch(`/api/specificuserblog`, {
         method: 'GET',
         headers: {
           "Content-Type": "application/json",
@@ -74,7 +73,7 @@ const Addblogs = () => {
     e.preventDefault()
     const addblog = { title, slug, desc, image: imagelink, author, metadata }
     // console.log(blog)
-    const response = await fetch(`${PORT}/api/blogs`, {
+    const response = await fetch(`/api/blogs`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
@@ -135,7 +134,7 @@ const Addblogs = () => {
   }
 
   const handleDelete = async (id) => {
-    fetch(`${PORT}/api/deleteblogs`, {
+    fetch('/api/deleteblogs', {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       headers: {
         "Content-Type": "application/json",
@@ -156,6 +155,9 @@ const Addblogs = () => {
 
   return (
     <>
+      <Head>
+        <title>Add Blogs</title>
+      </Head>
       <section className="text-gray-600 body-font relative">
         <div className="container px-5 py-12 mx-auto">
           <div className="flex flex-col text-center w-full mb-12">
