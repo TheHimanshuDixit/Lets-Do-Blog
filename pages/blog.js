@@ -18,7 +18,7 @@ const Blog = (props) => {
   };
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/getblogs').then((a) => {
+    fetch(`${PORT}/api/getblogs`).then((a) => {
       return a.json();
     }).then((b) => {
       setAllblogs(b);

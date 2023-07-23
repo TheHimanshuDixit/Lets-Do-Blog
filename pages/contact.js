@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+const PORT = "https://lets-do-blog-ghvznq5ki-thehimanshudixit.vercel.app";
+
 const Contact = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -10,7 +12,7 @@ const Contact = () => {
         e.preventDefault()
         const data = { phone, name, email, message };
 
-        fetch('http://localhost:3000/api/postcontact', {
+        fetch(`${PORT}/api/postcontact`, {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

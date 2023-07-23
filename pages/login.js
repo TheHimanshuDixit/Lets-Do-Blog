@@ -2,6 +2,8 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import { FaCode } from 'react-icons/fa';
 
+const PORT = "https://lets-do-blog-ghvznq5ki-thehimanshudixit.vercel.app";
+
 const Login = () => {
 
   const [credential, setCredential] = useState({ email: "", password: "" })
@@ -21,7 +23,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await fetch(`http://localhost:3000/api/login`, {
+    const response = await fetch(`${PORT}/api/login`, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       headers: {
         "Content-Type": "application/json",

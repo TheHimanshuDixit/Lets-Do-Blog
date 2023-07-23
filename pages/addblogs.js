@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react'
 import { BsFillTrashFill } from 'react-icons/bs';
 import { FaEdit } from 'react-icons/fa';
 
+const PORT = "https://lets-do-blog-ghvznq5ki-thehimanshudixit.vercel.app";
+
 const Addblogs = () => {
   const Router = useRouter();
 
@@ -15,7 +17,7 @@ const Addblogs = () => {
 
   const getblogs = async () => {
     if (localStorage.getItem('token')) {
-      fetch('http://localhost:3000/api/specificuserblog', {
+      fetch(`${PORT}/api/specificuserblog`, {
         method: 'GET',
         headers: {
           "Content-Type": "application/json",
@@ -72,7 +74,7 @@ const Addblogs = () => {
     e.preventDefault()
     const addblog = { title, slug, desc, image: imagelink, author, metadata }
     // console.log(blog)
-    const response = await fetch('http://localhost:3000/api/blogs', {
+    const response = await fetch(`${PORT}/api/blogs`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
@@ -133,7 +135,7 @@ const Addblogs = () => {
   }
 
   const handleDelete = async (id) => {
-    fetch('http://localhost:3000/api/deleteblogs', {
+    fetch(`${PORT}/api/deleteblogs`, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       headers: {
         "Content-Type": "application/json",
